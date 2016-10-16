@@ -1,0 +1,36 @@
+{
+  "name": "react-primercss",
+  "version": "0.1.0",
+  "description": "React primercss components",
+  "main": "index.js",
+  "author": "Terminux <gcastellant@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@kadira/react-storybook-decorator-centered": "^1.0.0",
+    "@kadira/storybook": "^2.21.0",
+    "@kadira/storybook-addon-knobs": "^1.3.3",
+    "@kadira/storybook-addon-options": "^1.0.1",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "getstorybook": "^1.6.0",
+    "json-loader": "^0.5.4",
+    "node-sass": "^3.10.1",
+    "raw-loader": "^0.5.1",
+    "react-storybook-addon-backgrounds": "^0.0.4",
+    "sass-loader": "^4.0.2",
+    "storybook-readme": "^1.1.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "octicons": "^4.4.0",
+    "primer-css": "^4.2.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}

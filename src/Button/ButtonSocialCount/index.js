@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import Button from '../Button';
-import { required, onlyOne, any, boolean, string, number, object, oneOf, func } from '../utils/types';
+import Button from '../../Button';
+import { required, onlyOne, any, boolean, string, number, object, oneOf, func } from '../../utils/types';
 
 export default class ButtonSocialCount extends Component {
   static propTypes = {
@@ -16,7 +16,7 @@ export default class ButtonSocialCount extends Component {
     const { children, className, style, value, onClick, ...restProps } = this.props;
     const prefix = 'btn';
     const classes = classnames(`${prefix}-with-count`, {
-      className
+      [className]: className
     });
 
     return (

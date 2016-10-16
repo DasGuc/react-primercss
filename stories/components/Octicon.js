@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import centered from '@kadira/react-storybook-decorator-centered';
 import withReadme from 'storybook-readme/with-readme';
-import { bgOptions } from '../options';
 
 import Octicon from '../../src/Octicon';
 import Button from '../../src/Button';
@@ -14,12 +13,11 @@ const readme = (load, md = require('../../src/Button/README.md')) => {
 
 export default storiesOf('Octicons', module)
   .addDecorator(centered)
-  .addDecorator(bgOptions())
 
   .add('All icons', readme(() => (
     <div style={{width: 500, fontSize: 50}}>
       {Object.keys(octicons.keywords).map((name, index) => {
-        return <Octicon key={index} name={name} style={{padding: 5}}/>
+        return <Octicon key={index} name={name} onClick={action(name)} style={{padding: 5, cursor: 'pointer'}}/>
       })}
     </div>
   )))
@@ -30,11 +28,11 @@ export default storiesOf('Octicons', module)
 
   .add('Colored icon', readme(() => (
     <div>
-      <Octicon name="eye" style={{fontSize: 50}} color="blue"/>&nbsp;&nbsp;
-      <Octicon name="git-commit" style={{fontSize: 50}} color="green"/>&nbsp;&nbsp;&nbsp;
-      <Octicon name="heart" style={{fontSize: 50}} color="red"/>
-      <Octicon name="mark-github" style={{fontSize: 50}} color="orange"/>&nbsp;&nbsp;
-      <Octicon name="git-pull-request" style={{fontSize: 50}} color="purple"/>
+      <Octicon name="eye" style={{fontSize: 50, padding: 5, color: '#4078c0'}}/>
+      <Octicon name="git-commit" style={{fontSize: 50, padding: 5, color: '#6cc644'}}/>
+      <Octicon name="heart" style={{fontSize: 50, padding: 5, color: '#bd2c00'}}/>
+      <Octicon name="mark-github" style={{fontSize: 50, padding: 5, color: '#c9510c'}}/>
+      <Octicon name="git-pull-request" style={{fontSize: 50, padding: 5, color: '#6e5494'}}/>
     </div>
   )))
 

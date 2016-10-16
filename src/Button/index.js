@@ -21,6 +21,15 @@ export default class Button extends Component {
     tag: 'button'
   }
 
+  static contextTypes = {
+    groupPrimary: onlyOne(['primary', 'danger', 'outline'], boolean),
+    groupDanger: onlyOne(['primary', 'danger', 'outline'], boolean),
+    groupOutline: onlyOne(['primary', 'danger', 'outline'], boolean),
+    groupDisabled: boolean,
+    groupSmall: boolean,
+    groupTag: oneOf(['button', 'a']),
+  }
+
   render() {
     const {
       children,
@@ -36,22 +45,31 @@ export default class Button extends Component {
       onClick
     } = this.props;
 
+    const {
+      groupPrimary,
+      groupDanger,
+      groupOutline,
+      groupSmall,
+      groupDisabled,
+      groupTag
+    } = this.context;
+
     const props = { style, onClick };
-    const Tag = tag;
+    const Tag = tag || groupTag;
     const prefix = 'btn';
 
     const classes = classnames(prefix, {
-      [`${prefix}-primary`]: primary,
-      [`${prefix}-danger`]: danger,
-      [`${prefix}-outline`]: outline,
-      [`${prefix}-sm`]: small,
+      [`${prefix}-primary`]: primary || groupPrimary,
+      [`${prefix}-danger`]: danger || groupDanger,
+      [`${prefix}-outline`]: outline || groupOutline,
+      [`${prefix}-sm`]: small || groupSmall,
       [`${prefix}-block`]: block,
-      ['disabled']: tag === 'a' ? disabled : false
+      ['disabled']: tag === 'a' ? disabled || groupDisabled : false
     }, className);
 
     if (tag === 'button') {
       props.type = 'button';
-      if (disabled) {
+      if (disabled || groupDisabled) {
         props.disabled = true;
       }
     } else {

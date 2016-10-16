@@ -6,7 +6,9 @@ import 'primer-css/build/build.css';
 import 'octicons/build/font/octicons.css';
 
 // import stories
+import './components/Layout';
 import './components/Button';
+import './components/Navigation';
 import './components/Octicon';
 
 setOptions({

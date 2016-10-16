@@ -2,11 +2,13 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import centered from '@kadira/react-storybook-decorator-centered';
 import withReadme from 'storybook-readme/with-readme';
-import { bgOptions } from '../options';
 
 import Button from '../../src/Button';
-import ButtonSocialCount from '../../src/ButtonSocialCount';
-import ButtonCounter from '../../src/ButtonCounter';
+import ButtonSocialCount from '../../src/Button/ButtonSocialCount';
+import ButtonCounter from '../../src/Button/ButtonCounter';
+import ButtonGroup from '../../src/Button/ButtonGroup';
+import ButtonGroupForm from '../../src/Button/ButtonGroupForm';
+import ButtonExpander from '../../src/Button/ButtonExpander';
 
 const readme = (load, md = require('../../src/Button/README.md')) => {
   return withReadme(md, load);
@@ -14,7 +16,6 @@ const readme = (load, md = require('../../src/Button/README.md')) => {
 
 export default storiesOf('Buttons', module)
   .addDecorator(centered)
-  .addDecorator(bgOptions())
 
   .add('Default', readme(() => (
     <div style={{textAlign: 'center'}}>
@@ -91,5 +92,98 @@ export default storiesOf('Buttons', module)
       <ButtonSocialCount onClick={action('clicked')} primary value={10}>Button</ButtonSocialCount><br/>
       <ButtonSocialCount onClick={action('clicked')} danger value={10}>Button</ButtonSocialCount><br/>
       <ButtonSocialCount onClick={action('clicked')} outline value={10}>Button</ButtonSocialCount><br/>
+    </div>
+  )))
+
+  .add('Group', readme(() => (
+    <div style={{textAlign: 'center'}}>
+      <ButtonGroup>
+        <Button onClick={action('clicked')}>Left button</Button>
+        <Button onClick={action('clicked')}>Middle button</Button>
+        <Button onClick={action('clicked')}>Right button</Button>
+      </ButtonGroup>
+      <br/><br/>
+      <ButtonGroup>
+        <Button onClick={action('clicked')} primary>Left button</Button>
+        <Button onClick={action('clicked')} primary>Middle button</Button>
+        <Button onClick={action('clicked')} primary>Right button</Button>
+      </ButtonGroup>
+      <br/><br/>
+      <ButtonGroup>
+        <Button onClick={action('clicked')} danger>Left button</Button>
+        <Button onClick={action('clicked')} danger>Middle button</Button>
+        <Button onClick={action('clicked')} danger>Right button</Button>
+      </ButtonGroup>
+      <br/><br/>
+      <ButtonGroup>
+        <Button onClick={action('clicked')} outline>Left button</Button>
+        <Button onClick={action('clicked')} outline>Middle button</Button>
+        <Button onClick={action('clicked')} outline>Right button</Button>
+      </ButtonGroup>
+      <br/><br/><br/>
+      <ButtonGroup>
+        <Button onClick={action('clicked')} small>Left button</Button>
+        <Button onClick={action('clicked')} small>Middle button</Button>
+        <Button onClick={action('clicked')} small>Right button</Button>
+      </ButtonGroup>
+      <br/><br/>
+      <ButtonGroup>
+        <Button onClick={action('clicked')} small disabled>Left button</Button>
+        <Button onClick={action('clicked')} small disabled>Middle button</Button>
+        <Button onClick={action('clicked')} small disabled>Right button</Button>
+      </ButtonGroup>
+    </div>
+  )))
+
+  .add('Group props', readme(() => (
+    <div style={{textAlign: 'center'}}>
+      <ButtonGroup primary>
+        <Button onClick={action('clicked')}>Left button</Button>
+        <Button onClick={action('clicked')}>Middle button</Button>
+        <Button onClick={action('clicked')}>Right button</Button>
+      </ButtonGroup>
+      <br/><br/>
+      <ButtonGroup danger>
+        <Button onClick={action('clicked')}>Left button</Button>
+        <Button onClick={action('clicked')}>Middle button</Button>
+        <Button onClick={action('clicked')}>Right button</Button>
+      </ButtonGroup>
+      <br/><br/>
+      <ButtonGroup outline>
+        <Button onClick={action('clicked')}>Left button</Button>
+        <Button onClick={action('clicked')}>Middle button</Button>
+        <Button onClick={action('clicked')}>Right button</Button>
+      </ButtonGroup>
+      <br/><br/><br/>
+      <ButtonGroup small>
+        <Button onClick={action('clicked')}>Left button</Button>
+        <Button onClick={action('clicked')}>Middle button</Button>
+        <Button onClick={action('clicked')}>Right button</Button>
+      </ButtonGroup>
+      <br/><br/>
+      <ButtonGroup disabled small>
+        <Button onClick={action('clicked')}>Left button</Button>
+        <Button onClick={action('clicked')}>Middle button</Button>
+        <Button onClick={action('clicked')}>Right button</Button>
+      </ButtonGroup>
+    </div>
+  )))
+
+  .add('Button group form', readme(() => (
+    <div style={{textAlign: 'center'}}>
+      <ButtonGroup>
+        <ButtonGroupForm>
+          <Button onClick={action('clicked')}>Button in a form</Button>
+        </ButtonGroupForm>
+        <Button onClick={action('clicked')}>Button</Button>
+        <Button onClick={action('clicked')}>Button</Button>
+      </ButtonGroup>
+    </div>
+  )))
+
+  .add('Button expander', readme(() => (
+    <div style={{textAlign: 'center'}}>
+      <ButtonExpander onClick={action('clicked')} /><br/>
+      Inline: <ButtonExpander onClick={action('clicked')} inline/>
     </div>
   )))
